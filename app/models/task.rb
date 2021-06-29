@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :user
-    belongs_to :Project
+    belongs_to :project
 
     validates_presence_of :name
 end
