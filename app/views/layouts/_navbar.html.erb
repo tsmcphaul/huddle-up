@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+<ul class="navbar-nav ml-auto navbar-right">
+  <li class="nav-item">
+   <%= link_to 'Home', root_path, class:"nav-link" %></a>
+  </li>
+  <% if logged_in? %>
+  <li class="nav-item">
+    <%= link_to 'My Tasks', user_tasks_path(:user_id), class:"nav-link"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Add Project', new_project_path, class:"nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Add ?', root_path, class:"nav-link" %>
+  </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to 'Sign Up', signup_path, class:"nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Log In', login_path, class:"nav-link" %>
+  </li>
+  <li> <%= button_to "Log In with Google", '/auth/google_oauth2' %></li>
+</ul>
+
+</nav>
+
