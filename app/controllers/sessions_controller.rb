@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     def home
         if logged_in?
-            redirect_to user_tasks_path            
+            redirect_to user_tasks_path(:user_id)            
         end
     end
 
@@ -27,14 +27,15 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
+        
         @user = User.find_or_create_by(uid: auth['uid'], email: auth['info']['email']) do |u|
             u.password = SecureRandom.hex(16)
-            u.username = auth['info']['first_name']
-            u.email = auth['email']
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
         end
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to _user_tasks_path
+            redirect_to user_tasks_path(:user_id)
         else
             flash[:alert] = "Login failed."
             redirect_to root_path

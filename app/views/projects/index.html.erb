@@ -1,0 +1,6 @@
+<h1> Project Lists</h1>
+
+<%=@projects.each do |project|%>
+    <%= tasks = project.tasks%>
+    <%= render partial: 'tasks/lists', locals: {tasks: @tasks} %>
+<% end %>
