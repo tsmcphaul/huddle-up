@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :show]
   end
 
-get 'users/:user_id/tasks', to: 'tasks#index'
+  # get '/tasks/completed', to: "tasks#completed"
+  get '/tasks/unfinished', to: "tasks#unfinished"
+# get 'users/:user_id/tasks', to: 'tasks#index'
 end

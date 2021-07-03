@@ -1,0 +1,3 @@
+<% @tasks = current_user.tasks.unfinished%>
+
+<%= render partial: 'lists', locals: {tasks: @tasks} %>

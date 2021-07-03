@@ -22,14 +22,18 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        
         session.delete(:user_id)
+        current_user = nil
         redirect_to root_path
     end
 
     def omniauth
         
-        @user = User.find_or_create_by(uid: auth['uid'], email: auth['info']['email']) do |u|
-            u.password = SecureRandom.hex(16)
+        # @user = User.find_or_create_by(uid: auth['uid'], email: auth['info']['email']) do |u|
+            @user = User.find_or_create_by(uid: auth['uid']) do |u|
+
+            # u.password = SecureRandom.hex(16)
             u.name = auth['info']['name']
             u.email = auth['info']['email']
         end

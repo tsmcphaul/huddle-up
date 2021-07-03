@@ -35,11 +35,12 @@ class TasksController < ApplicationController
     end
 
     def show
-        #not necessarily needed
+ 
     end
 
     def edit
         @task = Task.find(params[:id])
+    
     end
 
     def update
@@ -56,6 +57,15 @@ class TasksController < ApplicationController
         @task.destroy
         redirect_to projects_path
     end
+
+    # def completed
+    #     @task = Task.completed
+    # end
+
+    def unfinished
+        @task = Task.unfinished
+    end
+
 
 
     private
