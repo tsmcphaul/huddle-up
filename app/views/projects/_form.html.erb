@@ -1,5 +1,5 @@
-<ol>
 <% if @project.errors.any?%>
+<ol>
     <% @project.errors.full_messages.each do |message|%>
     <li><%= message%> </li>
     <% end %>
@@ -9,5 +9,6 @@
 <%= form_for @project do |f|%>
     <%= f.label :name%>
     <%= f.text_field :name%>
-    <%= f.submit "Add Project"%>
+    <%= f.submit "Submit"%>
 <% end %>
+

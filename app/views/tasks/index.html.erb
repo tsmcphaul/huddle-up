@@ -1,0 +1,4 @@
+
+
+<% @tasks = current_user.tasks%>
+<%= render partial: 'user', locals: {tasks: @tasks} %>

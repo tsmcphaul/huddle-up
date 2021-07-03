@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :projects do 
     resources :tasks, only: [:new]
   end
-  
+
   resources :users, only: [:new, :create] do
     resources :tasks, only: [:index, :show]
   end
 
-
+get 'users/:user_id/tasks', to: 'tasks#index'
 end

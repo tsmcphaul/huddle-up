@@ -10,15 +10,18 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to projects_path
         else
-            redirect_to new_project_path
+            flash[:notice] = "Something went wrong"
+            render :new
         end
     end
 
     def index
         @projects = Project.all
+        
     end
 
     def show
+        @project = Project.find(params[:id])
         @tasks = @project.tasks
     end
 
@@ -34,6 +37,7 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
+        @project = Project.find(params[:id])
         @project.destroy
         redirect_to projects_path
     end

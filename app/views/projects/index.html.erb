@@ -1,6 +1,8 @@
 <h1> Project Lists</h1>
 
-<%=@projects.each do |project|%>
-    <%= tasks = project.tasks%>
-    <%= render partial: 'tasks/lists', locals: {tasks: @tasks} %>
+<% @projects.each do |project|%>
+    <% @tasks = project.tasks%>
+   
+    <%= render partial: 'tasks/lists', locals: {tasks: @tasks, projects: @projects} %>
+    <%= button_to 'Delete Project', project, method: :delete, class:"btn btn-primary" %>
 <% end %>

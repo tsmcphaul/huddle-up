@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
     def new
         if params[:user_id]
-            @user = User.find_by(params[:user_id])
+            @user = User.find(params[:user_id])
             @task = Task.new([project_id: @project.id, user_id: @user.id])
         else 
             @user = nil
@@ -17,12 +17,21 @@ class TasksController < ApplicationController
         if @task.save
             redirect_to projects_path
         else
-            redirect_to new_task_path
+            flash[:notice] = "Something went wrong"
+            render :new
+            
         end
     end
 
     def index
-        @tasks = Task.all
+        # if params[:user_id]
+            
+        #     @user = User.find(params[:id])
+        #     @tasks = @user.tasks
+            
+        # else
+            @tasks = Task.all
+        # end
     end
 
     def show
@@ -30,9 +39,11 @@ class TasksController < ApplicationController
     end
 
     def edit
+        @task = Task.find(params[:id])
     end
 
     def update
+        @task = Task.find(params[:id])
         if @task.update(task_params)
             redirect_to projects_path
         else
@@ -41,15 +52,14 @@ class TasksController < ApplicationController
     end
 
     def destroy
+        @task = Task.find(params[:id])
         @task.destroy
         redirect_to projects_path
     end
 
-    def finished
-        
 
     private
     def task_params
-        params.require(:task).permit(:name, :detail, :project_id, :user_id)
+        params.require(:task).permit(:name, :detail, :project_id, :user_id, :finished)
     end
 end

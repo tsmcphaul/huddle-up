@@ -18,6 +18,9 @@
   </head>
   <body>
       <%= render 'layouts/navbar' %>
+      <% if logged_in?%>
+      <h2>Hello <%= current_user.name%></h2>
+      <% end%>
       <%= yield %>
 
     <!-- Optional JavaScript; choose one of the two! -->

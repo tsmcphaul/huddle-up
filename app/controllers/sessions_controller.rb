@@ -11,18 +11,18 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(username: params[:user][:username])
+        @user = User.find_by(email: params[:user][:email])
 		if @user && @user.authenticate(params[:user][:password])
 			session[:user_id] = @user.id
-			redirect_to user_tasks_path
+			redirect_to user_tasks_path(:user_id)
         else
-            flash[:error] = "Couldn't log in.  Try again!"
-            redirect_to login_path
+            flash[:notice] = "Couldn't log in.  Try again!"
+            render :new
         end
     end
 
     def destroy
-        session.clear
+        session.delete(:user_id)
         redirect_to root_path
     end
 
@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
             redirect_to user_tasks_path(:user_id)
         else
             flash[:alert] = "Login failed."
-            redirect_to root_path
+            render :login
         end
     end
 

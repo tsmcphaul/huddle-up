@@ -1,5 +1,5 @@
 <h1> Edit Your Project</h1>
 
-<%= render 'form' %>
+<%= render 'form', locals: {@task: @task} %>
 
 <%= link_to 'Go Back', projects_path, class:"btn btn-primary" %>

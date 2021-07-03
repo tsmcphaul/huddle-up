@@ -1,0 +1,6 @@
+<h1> Edit Your Task</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Go Back', projects_path, class:"btn btn-primary" %>
+<%= button_to 'Delete', @task, method: :delete, class:"btn btn-primary" %>
