@@ -4,7 +4,7 @@ Huddle Up is a group task manager Rails application.  The application allows use
 
 ## Installation
 
-Clone the repository to your local directory by this to your terminal
+Clone the repository to your local directory by adding this to your terminal:
 
 ```bash
 git clone https://github.com/tsmcphaul/huddle-up.git
@@ -13,7 +13,7 @@ git clone https://github.com/tsmcphaul/huddle-up.git
 
 Once cloned, confirm you are in the application's directory and run 'bundle install'.  
 
-Once installed, run 'Rails s' to start up your local server.
+Once installed, run 'rails s' to start up your local server.
 
 Open your web browser and enter 'http://localhost:3000/' in the address bar.
 
