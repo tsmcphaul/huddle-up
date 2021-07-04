@@ -1,24 +1,23 @@
-# README
+# Huddle Up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Huddle Up is a group task manager Rails application.  The application allows users to create projects, add tasks to a project, and assign tasks to users.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone the repository to your local directory by this to your terminal
 
-* System dependencies
+```bash
+git clone https://github.com/tsmcphaul/huddle-up.git
+```
+## Usage
 
-* Configuration
+Once cloned, confirm you are in the application's directory and run 'bundle install'.  
 
-* Database creation
+Once installed, run 'Rails s' to start up your local server.
 
-* Database initialization
+Open your web browser and enter 'http://localhost:3000/' in the address bar.
 
-* How to run the test suite
+Create a user and begin managing your projects and tasks!
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
