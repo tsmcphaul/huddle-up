@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     def update
         @task = Task.find(params[:id])
         if @task.update(task_params)
-            redirect_to projects_path
+            redirect_to user_tasks_path(:user_id)
         else
             redirect_to edit_task_path
         end
