@@ -1,4 +1,4 @@
-<h1>Log In Here</h1>
+<h1>Log In</h1>
 
 <% if @user.errors.any?%>
 <ol>
@@ -11,10 +11,16 @@
 <%= form_for :user, url: login_path do |f|%>
 <%= f.label :email %>
 <%= f.text_field :email %>
-
+<br>
+<br>
+<br>
 <%= f.label :password %>
 <%= f.password_field :password %>
-
-<%= f.submit "Log In" %>
+<br>
+<br>
+<br>
+<%= f.submit "Log In", class:"btn btn-primary" %>
 
 <% end %>
+
+<img src="https://www.wikihow.com/images/thumb/4/4d/Log-In-Step-13-Version-2.jpg/v4-460px-Log-In-Step-13-Version-2.jpg.webp" class="position-absolute top-50 start-50 translate-middle"> 

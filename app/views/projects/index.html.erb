@@ -4,5 +4,7 @@
     <% @tasks = project.tasks%>
    
     <%= render partial: 'tasks/lists', locals: {tasks: @tasks, projects: @projects} %>
+
     <%= button_to 'Delete Project', project, method: :delete, class:"btn btn-primary" %>
+    <br>
 <% end %>

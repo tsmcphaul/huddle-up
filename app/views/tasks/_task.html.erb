@@ -13,7 +13,7 @@
 
       
       <td><%= task.project.name %></td>
-      <td><%= link_to task.name, task_path(:id) %></td>
+      <td><%= link_to task.name, task_path(task) %></td>
       <td><%= task.detail %></td>
       <td><%= task.user.name %></td>
       <td><%= task.finished %></td>

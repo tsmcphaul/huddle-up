@@ -1,7 +1,7 @@
 
+<%= link_to 'Incompleted Tasks', '/tasks/unfinished', class:"btn btn-primary"%>
 
-<a href="/tasks/unfinished">Incompleted Tasks</a>
+<br>
 <% @tasks = current_user.tasks%>
 
-<%= render partial: 'lists', locals: {tasks: @tasks} %>
-
+<%= render 'lists', locals: {tasks: @tasks} %>

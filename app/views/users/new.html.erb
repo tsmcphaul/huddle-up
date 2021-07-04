@@ -1,4 +1,4 @@
-<h1>Signup Page</h1>
+<h1>Sign Up</h1>
 <% if @user.errors.any?%>
 <ol>
     <% @user.errors.full_messages.each do |message|%>
@@ -11,13 +11,21 @@
 
 <%= f.label :name %>
 <%= f.text_field :name %>
-
+<br>
+<br>
+<br>
 <%= f.label :email %>
 <%= f.text_field :email %>
-
+<br>
+<br>
+<br>
 <%= f.label :password %>
 <%= f.password_field :password %>
-
-<%= f.submit "Sign Up" %>
+<br>
+<br>
+<br>
+<%= f.submit "Sign Up", class:"btn btn-primary" %>
 
 <% end %>
+
+<img src="https://st2.depositphotos.com/3837271/6941/i/600/depositphotos_69417709-stock-photo-text-sign-up.jpg" class="position-absolute top-50 start-50 translate-middle">
