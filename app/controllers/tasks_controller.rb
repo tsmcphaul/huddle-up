@@ -31,11 +31,15 @@ class TasksController < ApplicationController
             
         # else
             @tasks = Task.all
+           
+           
         # end
     end
 
     def show
- 
+        @task = Task.find_by(id: params[:id])
+        @tasks = Task.all
+          
     end
 
     def edit
@@ -63,7 +67,7 @@ class TasksController < ApplicationController
     # end
 
     def unfinished
-        @task = Task.unfinished
+        @tasks = Task.all.unfinished
     end
 
 

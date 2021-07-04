@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create] do
-    resources :tasks, only: [:index, :show]
+    resources :tasks, only: [:index, :show, :unfinished]
   end
 
   # get '/tasks/completed', to: "tasks#completed"

@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
 <ul class="navbar-nav ml-auto navbar-right">
-  <li class="nav-item">
-   <%= link_to 'Home', root_path, class:"nav-link" %></a>
-  </li>
+  
   <% if logged_in? %>
   <li class="nav-item">
     <%= link_to 'My Tasks', root_path, class:"nav-link"%>

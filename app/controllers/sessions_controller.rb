@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 
     def home
         if logged_in?
-            redirect_to user_tasks_path(:user_id)            
+            redirect_to user_tasks_path(:user_id)     
+           
         end
     end
 

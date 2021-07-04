@@ -2,5 +2,6 @@
 
 <a href="/tasks/unfinished">Incompleted Tasks</a>
 <% @tasks = current_user.tasks%>
+
 <%= render partial: 'lists', locals: {tasks: @tasks} %>
 

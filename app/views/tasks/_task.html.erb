@@ -10,15 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @tasks.each do |task|%>
+
       
       <td><%= task.project.name %></td>
-      <td><%= link_to task.name, task_path(task) %></td>
+      <td><%= link_to task.name, task_path(:id) %></td>
       <td><%= task.detail %></td>
       <td><%= task.user.name %></td>
       <td><%= task.finished %></td>
       <td> <%= link_to 'Edit', edit_task_path(task)%>
     </tr>
-    <% end %>
+
   </tbody>
 </table>
