@@ -1,7 +1,9 @@
 
 <%= link_to 'Incompleted Tasks', '/tasks/unfinished', class:"btn btn-primary"%>
+<%= link_to 'Add New Task', new_user_task_path, class:"btn btn-primary"%>
 
 <br>
-<% @tasks = current_user.tasks%>
+
 
 <%= render 'lists', locals: {tasks: @tasks} %>
+

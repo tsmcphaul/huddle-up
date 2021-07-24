@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     def home
         if logged_in?
-            redirect_to user_tasks_path(:user_id)     
+            redirect_to user_tasks_path(current_user)     
            
         end
     end
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
 		if @user && @user.authenticate(params[:user][:password])
 			session[:user_id] = @user.id
-			redirect_to user_tasks_path(:user_id)
+			redirect_to user_tasks_path(current_user)
         else
             flash[:notice] = "Couldn't log in.  Try again!"
             render :new
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        
+       
         # @user = User.find_or_create_by(uid: auth['uid'], email: auth['info']['email']) do |u|
             @user = User.find_or_create_by(uid: auth['uid']) do |u|
 
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
         end
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to user_tasks_path(:user_id)
+            redirect_to user_tasks_path(current_user)
         else
             flash[:alert] = "Login failed."
             render :login

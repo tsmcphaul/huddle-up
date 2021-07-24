@@ -1,12 +1,6 @@
 
-<% if @task%>
+
 <% @task = Task.find_by(id: params[:id])%>
 <%= render partial: 'task', locals: {task: @task} %>
-<%= link_to 'Go Back', user_tasks_path(:user_id), class:"btn btn-primary" %>
+<%= link_to 'Go Back', user_tasks_path(current_user), class:"btn btn-primary" %>
 
-<% else%>
-<% @tasks = current_user.tasks.unfinished%>
-
-<%= render partial: 'lists', locals: {tasks: @tasks} %>
-<%= link_to 'Go Back', user_tasks_path(:user_id), class:"btn btn-primary" %> 
-<% end %>

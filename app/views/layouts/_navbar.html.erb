@@ -4,7 +4,7 @@
   
   <% if logged_in? %>
   <li class="nav-item">
-    <%= link_to 'My Tasks', root_path, class:"nav-link"%>
+    <%= link_to 'My Tasks', user_tasks_path(current_user), class:"nav-link"%>
   </li>
   <li class="nav-item">
     <%= link_to 'Add Project', new_project_path, class:"nav-link" %>
@@ -14,6 +14,9 @@
   </li>
   <li class="nav-item">
     <%= link_to 'Projects', projects_path, class:"nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'MVP', mvp_path, class:"nav-link" %>
   </li>
   <li class="nav-item">
     <%= link_to 'Log Out', logout_path, class:"nav-link" %>

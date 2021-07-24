@@ -1,0 +1,30 @@
+<%= form_for(@task) do |f|%>
+
+<% if @task.errors.any?%>
+<ol> 
+    <% @task.errors.full_messages.each do |message|%>
+    <li><%= message %></li>
+    <% end %>
+</ol>
+<% end %>
+
+    <%= f.label :project_id, "Project" %>
+    <%= f.collection_select :project_id, Project.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <br>
+    <br>
+    <%= f.label :detail%>
+    <%= f.text_area :detail%>
+    <br>
+    <br>
+    <%= f.label :finished, "Finished?" %>
+    <%= f.select :finished, options_for_select([['Yes', true], ['No', false]]) %>
+    <br>
+    <br>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+    <br>
+<% end %>
